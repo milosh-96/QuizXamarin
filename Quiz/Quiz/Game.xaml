@@ -1,19 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Quiz.Game"
              x:Name="GamePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label FontSize="42" x:Name="QuestionTitle"></Label>
 
-            <ListView x:Name="QuestionsView" ItemsSource="{Binding Source={x:Reference GamePage},Path=BindingContext.Questions}">
+            <ListView x:Name="QuestionsView" ItemSelected="Handle_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding Path=question}"></Label>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label FontSize="Medium" Text="{Binding question}"></Label>
+                                
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button x:Name="PointsView" Text="{Binding NumberOfPoints,Source={x:Reference GamePage},Mode=TwoWay}"></Button>
         </StackLayout>
 
         

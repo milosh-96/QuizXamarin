@@ -25,7 +25,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -130,7 +130,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Quiz\Quiz.csproj">
-      <Project>{6B9239B6-A83E-44A0-98BE-D4D9D7144B1F}</Project>
+      <Project>{D06CE917-DEDC-45E0-847A-72EE2B01CFEB}</Project>
       <Name>Quiz</Name>
     </ProjectReference>
   </ItemGroup>
