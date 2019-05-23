@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Quiz.Views.Game"
+             
+             >
+  <ContentView.Content>
+      <StackLayout>
+            <Label FontSize="48">Pitanja</Label>
+            <ListView x:Name="QuestionsView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label FontSize="24" Text="{Binding question}" />
+
+                                <ListView ItemsSource="{Binding incorrect_answers}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Button Text="{Binding}"></Button>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

@@ -2,26 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Quiz"
+             xmlns:views="clr-namespace:Quiz.Views"
              x:Class="Quiz.MainPage"
              >
 
-    <ContentPage.Resources>
-        <Style TargetType="Button"
-               Class="MainMenu">
-            <Setter Property="BackgroundColor"
-                    Value="#003366" />
-            <Setter Property="TextColor"
-                    Value="White" />
-            
-        </Style>
-    </ContentPage.Resources>
-
-    <StackLayout>
-
-        <Button Clicked="StartGameButton_Clicked" x:Name="StartGameButton" StyleClass="MainMenu" HorizontalOptions="FillAndExpand" Text="Start Game"></Button>
-        <Button StyleClass="MainMenu" HorizontalOptions="FillAndExpand" Text="Settings"></Button>
-        <Button StyleClass="MainMenu" HorizontalOptions="FillAndExpand" Text="About Us"></Button>
-
-    </StackLayout>
+    
+    
 
 </ContentPage>

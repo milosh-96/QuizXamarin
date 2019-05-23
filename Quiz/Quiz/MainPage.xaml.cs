@@ -13,16 +13,14 @@ namespace Quiz
     [DesignTimeVisible(true)]
     public partial class MainPage : ContentPage
     {
+        
+
         public MainPage()
         {
+          
             InitializeComponent();
+            this.Content = new Views.Menu();
         }
 
-      
-
-        private void StartGameButton_Clicked(object sender, EventArgs e)
-        {
-            App.Current.MainPage = new Game();
-        }
     }
 }
