@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,19 +12,38 @@ namespace Quiz.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Game : ContentView
     {
-        private List<Models.Question> questions = new List<Models.Question>()
-        {
-            new Models.Question("Test","test","test","Who's the voice actor for Thrall in the Warcraft game series?","Chris Metzen",new List<string>(){
-                "Ben Affleck","Jason Derulo","Jim Carrey"
-            })
-        };
-
-        public List<Models.Question> Questions { get => questions; set => questions = value; }
-        public Game()
+       
+        public Game(Models.Question question)
         {
            
             InitializeComponent();
-            QuestionsView.ItemsSource = Questions;
+
+            question.incorrect_answers.Add(question.correct_answer);
+
+            question.incorrect_answers.OrderBy(a => Guid.NewGuid()).ToList();
+            Question.Text = question.question;
+
+            foreach(string ques in question.incorrect_answers)
+            {
+                var btn = new Button() {CommandParameter = question.correct_answer, Text = ques };
+                btn.Clicked += Btn_Clicked;
+                Answers.Children.Add(btn);
+            }
         }
+
+        void Btn_Clicked(object sender, EventArgs e)
+        {
+            Button selected = (Button)sender;
+            if (selected.CommandParameter.ToString() == selected.Text)
+            {
+                selected.BackgroundColor = Color.Green;
+                MainPage.ContentProperty = new Views.Menu();
+            }
+            else
+            {
+                selected.BackgroundColor = Color.Red;
+            }
+        }
+
     }
 }
